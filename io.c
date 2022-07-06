@@ -37,3 +37,9 @@ int choose(char* a, char* b){
     } while(choice != 1 && choice != 2);
     return choice;
 }
+
+int alph(char* a, char* b){
+    int n = strcmp(a, b);
+    if(n > 0) return 2;
+    else return 1;
+}

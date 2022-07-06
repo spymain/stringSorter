@@ -52,10 +52,14 @@ int main(void){
                 }
                 break;
             case '3':
-                mergeSort(tmp, choose);
+                mergeSort(tmp, alph);
                 printList(tmp);
                 break;
             case '4':
+                mergeSort(tmp, choose);
+                printList(tmp);
+                break;
+            case '5':
                 prompt("Are you sure? (y/n): ", buff, BUFF_SIZE);
                 if(buff[0] == 'y') run = 0;
                 break;
@@ -70,5 +74,5 @@ int main(void){
 }
 
 void help(){
-    printf("1. Add Titles\n2. Delete Title\n3. Sort\n4. End\n");
+    printf("1. Add Titles\n2. Delete Title\n3. Alphabetize\n4. Sort\n5. End\n");
 }

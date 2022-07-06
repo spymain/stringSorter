@@ -8,5 +8,6 @@ char* prompt(char* prompt, char* dest, int len);
 int getNum(int bound, int len);
 int promptNum(char* prompt, int bound, int len);
 int choose(char* a, char* b);
+int alph(char* a, char* b);
 
 #endif
