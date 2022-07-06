@@ -51,7 +51,7 @@ int main(void){
                 }
                 break;
             case '3':
-                mergeSort(tmp);
+                mergeSort(tmp, choose);
                 printList(tmp);
                 break;
             case '4':

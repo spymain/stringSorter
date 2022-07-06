@@ -3,16 +3,16 @@
 #include "merge.h"
 #include "io.h"
 
-void mergeSort(struct list* l){
+void mergeSort(struct list* l, int (*nodeCmp)(char*, char*)){
     if (listLen(l) > 1){
         struct list* l2 = splitList(l);
-        mergeSort(l);
-        mergeSort(l2);
-        merge(l, l2);
+        mergeSort(l, nodeCmp);
+        mergeSort(l2, nodeCmp);
+        merge(l, l2, nodeCmp);
     }
 }
 
-void merge(struct list* a, struct list* b){
+void merge(struct list* a, struct list* b, int (*nodeCmp)(char*, char*)){
     struct node *headA = a -> first, *headB = b -> first, *tmp;
     struct list merged;
     struct list* new = &merged;
@@ -21,7 +21,7 @@ void merge(struct list* a, struct list* b){
 
     int choice;
     while(headA && headB){
-        choice = nodeCmp(headA, headB);
+        choice = nodeCmp(headA -> data, headB -> data);
         if(choice == 1){
             tmp = headA;
             headA = headA -> next;
@@ -53,14 +53,6 @@ void merge(struct list* a, struct list* b){
     delList(b);
 }
 
-int nodeCmp(struct node* a, struct node* b){
-    int choice;
-    do {
-        printf("\n1. %s\nor\n2. %s\n\n", a -> data, b -> data);
-        choice = getNum(2, BUFF_SIZE);
-    } while(choice != 1 && choice != 2);
-    return choice;
-}
 void moveNode(struct node* n, struct list* l){
     //fix pointers
     struct node *np = n -> prev;

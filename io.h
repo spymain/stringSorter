@@ -7,5 +7,6 @@ char* getIn(char* dest, int len);
 char* prompt(char* prompt, char* dest, int len);
 int getNum(int bound, int len);
 int promptNum(char* prompt, int bound, int len);
+int choose(char* a, char* b);
 
 #endif
