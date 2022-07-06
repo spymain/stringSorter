@@ -126,10 +126,10 @@ void printList(struct list* l){
     int count = 0;
     printf("\n│ Length: %i\n│ ----\n", listLen(l));
     while(head){
-        printf("│ %i. %s\n", count++, head -> data);
+        printf("│ %i.\t%s\n", count++, head -> data);
         head = head -> next;
     }
-    printf("└──────────────────\n\n");
+    printf("└───────────────────────\n\n");
 }
 
 int listLen(struct list* l){
