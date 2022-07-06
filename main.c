@@ -24,6 +24,7 @@ int main(void){
     
     //*
     int run = 1;
+    help();
     while(run){
         prompt("Command: ", buff, BUFF_SIZE);
         switch(buff[0]){
