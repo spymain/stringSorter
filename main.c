@@ -9,8 +9,8 @@
 char* helps[] = {
     "1. Manipulate List\n2. Arrange List\n3. File I/O\n4. End\n",
     "1. Add Titles\n2. Delete Title\n3. Clear Titles\n4. Back\n",
-    "1. Alphabetize\n2. Sort\n3. Back\n",
-    "1. New from File\n2. Append from file\n3. Back\n"
+    "1. View List\n2. Alphabetize\n3. Sort\n4. Back\n",
+    "1. New from File\n2. Append from file\n3. Print to file\n4. Back\n"
 };
 
 void help(int menu);
@@ -91,15 +91,18 @@ int main(void){
                 break;
             case 2://Arrange List
                 switch(choice){
-                    case 1://Alphabetize
+                    case 1:
+                        printList(tmp);
+                        break;
+                    case 2://Alphabetize
                         mergeSort(tmp, alph);
                         printList(tmp);
                         break;
-                    case 2://Sort
+                    case 3://Sort
                         mergeSort(tmp, choose);
                         printList(tmp);
                         break;
-                    case 3://Back
+                    case 4://Back
                         menu = 0;
                         break;
                     default:
@@ -110,10 +113,26 @@ int main(void){
             case 3://File I/0
                 switch(choice){
                     case 1://New
-                        break;
+                        clearList(tmp);
                     case 2://Append
+                        //*
+                        while(1){
+                            prompt("File: ", buff, BUFF_SIZE);
+                            if(fileApnd(buff, tmp)) break;
+                            printf("Error opening file.\n");
+                        }
+                        printList(tmp);
+                        //*/
                         break;
-                    case 3://Back
+                    case 3://Print to file
+                        while(1){
+                            prompt("File: ", buff, BUFF_SIZE);
+                            if(printFile(buff, tmp)) break;
+                            printf("Error opening file.\n");
+                        }
+                        printf("Printed to %s.\n", buff);
+                        break;
+                    case 4://Back
                         menu = 0;
                         break;
                     default:
