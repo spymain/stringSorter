@@ -79,6 +79,7 @@ int main(void){
                         }
                         break;
                     case 3://Clear
+                        clearList(tmp);
                         break;
                     case 4://Back
                         menu = 0;

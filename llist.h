@@ -21,6 +21,7 @@ struct node* getNode(int indx, struct list* l);
 void freeNode(struct node* n);
 void delNode(struct node* node);
 void delList(struct list* l);
+void clearList(struct list* l);
 void printList(struct list* l);
 int listLen(struct list* l);
 

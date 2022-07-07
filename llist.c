@@ -121,6 +121,16 @@ void delList(struct list* l){
     //printf("Done.\n");
 }
 
+void clearList(struct list* l){
+    struct node* head = l -> first, *headPrev = l -> first;
+    while (head){
+        head = head -> next;
+        freeNode(headPrev);
+        headPrev = head;
+    }
+    l -> first = l -> last = NULL;
+}
+
 void printList(struct list* l){
     struct node* head = l -> first;
     int count = 0;
