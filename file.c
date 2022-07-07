@@ -7,8 +7,9 @@ int fileApnd(char* filename, struct list* l){
     char buff[BUFF_SIZE];
     FILE* fp = fopen(filename, "r");
     if (!fp) {fclose(fp); return 0;}
-    while(!feof(fp)){
+    while(1){
         fgets(buff, BUFF_SIZE - 1, fp);
+        if(feof(fp)) break;
         if(buff[strlen(buff) - 1] == '\n') buff[strlen(buff) - 1] = '\0';
         addNodeEnd(buff, BUFF_SIZE, l);
     }
