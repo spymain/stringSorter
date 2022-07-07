@@ -23,7 +23,7 @@ int printFile(char* filename, struct list* l){
     struct node* head = l -> first;
     while(head){
         fputs(head -> data, fp);
-        fputc('\n', fp);
+        if(head -> next)fputc('\n', fp);
         head = head -> next;
     }
     fclose(fp);
